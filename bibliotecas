@@ -1,0 +1,8 @@
+pip install pyttsx3 //utilizada para converter texto em fala (Text-to-Speech, TTS).
+pip install PyPDF2 python-docx //É usada para leitura de documentos PDF, DOCX 
+
+Modelo Vosk para traducao de Audio em texto
+pip install vosk //Biblioteca principal para reconhecimento de fala offline.
+pip install sounddevice //Captura de áudio do microfone em tempo real.
+pip install pyaudio //Armazena dados de áudio capturados em uma fila para processamento posterior.
+pip install sounddevice //Manipulação de fluxos de áudio, útil para gravação e reprodução de som.
