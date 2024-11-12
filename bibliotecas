@@ -6,3 +6,5 @@ pip install vosk //Biblioteca principal para reconhecimento de fala offline.
 pip install sounddevice //Captura de áudio do microfone em tempo real.
 pip install pyaudio //Armazena dados de áudio capturados em uma fila para processamento posterior.
 pip install sounddevice //Manipulação de fluxos de áudio, útil para gravação e reprodução de som.
+
+Flask - permite criar servidores web e lidar com requisições HTTP, como GET e POST
