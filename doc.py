@@ -3,6 +3,7 @@ import sys
 import docx
 import PyPDF2
 import pyttsx3
+from googletrans import Translator
 
 def processar_documento(caminho_documento):
     texto = ""
@@ -21,6 +22,12 @@ def processar_documento(caminho_documento):
         raise ValueError("Formato de documento não suportado. Utilize PDF ou DOCX.")
     
     return texto
+
+def traduzir_texto(texto, idioma_destino='pt'):
+    """Traduz o texto para o idioma desejado usando googletrans."""
+    translator = Translator()
+    traducao = translator.translate(texto, dest=idioma_destino)
+    return traducao.text
 
 def converter_texto_em_audio(texto, nome_arquivo):
     engine = pyttsx3.init()
@@ -52,9 +59,16 @@ def main():
     caminho_documento = sys.argv[1]
     if os.path.exists(caminho_documento):
         texto = processar_documento(caminho_documento)
+        
         if texto.strip():
+            # Traduzir o texto para o idioma desejado (exemplo: 'pt' para português)
+            texto_traduzido = traduzir_texto(texto, idioma_destino='pt')
+            
+            # Gerar nome para o arquivo de áudio
             nome_arquivo_audio = os.path.splitext(caminho_documento)[0] + '.mp3'
-            converter_texto_em_audio(texto, nome_arquivo_audio)
+            
+            # Converter o texto traduzido em áudio
+            converter_texto_em_audio(texto_traduzido, nome_arquivo_audio)
         else:
             print("Erro: O documento está vazio ou não contém texto reconhecível.")
     else:
