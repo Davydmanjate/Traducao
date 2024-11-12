@@ -10,15 +10,10 @@
             background-image: url('/static/ceu.jpg');
             background-size: cover;
             background-position: center;
-            /* background-color: #cce7ff; */
             border: none;
             border-radius: 22px;
-            height: 300px;
+            height: 400px;
             width: 500px;
-        }
-        .card-img-top {
-            height: 200px;
-            object-fit: cover;
         }
         h5 {
             text-align: center;
@@ -28,20 +23,28 @@
             float: right;
             border-radius: 15px;
         }
-
     </style>
 </head>
 <body>
     <div class="container mt-5">
         <div class="card">
-            <!-- <img src="#" class="card-img-top" alt="Imagem do Sistema"> -->
             <div class="card-body">
                 <h5 class="card-title">Converter Documento em Áudio</h5>
                 <form action="/converter_audio" method="post" enctype="multipart/form-data"><br>
                     <div class="form-group">
-                        <input type="file" name="documento" class="form-control-file" required>
-                        <button type="submit" class="btn btn-primary btn-right">Converter</button>
+                        <input type="file" name="documento" class="form-control-file" required><br>
                     </div>
+                    <div class="form-group">
+                        <label for="lang">Selecione o idioma:</label>
+                        <select name="lang" class="form-control" id="lang" required>
+                            <option value="pt">Português</option>
+                            <option value="en">Inglês</option>
+                            <option value="es">Espanhol</option>
+                            <option value="fr">Francês</option>
+                            <option value="de">Alemão</option>
+                        </select><br>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-right">Converter</button>
                 </form><br>
                 <hr> <!-- Adicionado separador -->
                 <h5 class="card-title">Captar Fala</h5>
